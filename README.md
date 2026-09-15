@@ -4,7 +4,12 @@ Render Mermaid diagrams **inside the native text editor**, at the position of a
 Markdown fence or a standalone `.mmd` / `.mermaid` file. Each diagram has a
 **Code** button that restores its editable source.
 
-![Mermaid Inline flowchart preview](docs/diagram-preview.png)
+## See it in action
+
+A 53-second showcase of inline diagrams, source toggling, panning and zooming,
+and standalone Mermaid files.
+
+https://github.com/user-attachments/assets/33dfca7d-05c7-4cd3-847d-99b628cd2ec9
 
 This is a working prototype using VS Code's **proposed `editorInsets` API**.
 It inserts a webview after the first source line and folds the remaining lines.
