@@ -1,0 +1,14 @@
+node_modules/**
+src/**
+test/**
+scripts/**
+.vscode/**
+.vscode-test/**
+tsconfig.json
+playwright.config.ts
+package-lock.json
+dist/integration.cjs
+**/*.map
+**/*.vsix
+.github/**
+SHA256SUMS.txt

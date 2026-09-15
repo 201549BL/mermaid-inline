@@ -1,0 +1,10 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+    "name": "Run Mermaid Inline", "type": "extensionHost", "request": "launch",
+    "runtimeExecutable": "${execPath}",
+    "args": ["--extensionDevelopmentPath=${workspaceFolder}", "--enable-proposed-api=201549bl.mermaid-inline", "${workspaceFolder}/examples"],
+    "outFiles": ["${workspaceFolder}/dist/**/*.cjs"],
+    "preLaunchTask": "build"
+  }]
+}

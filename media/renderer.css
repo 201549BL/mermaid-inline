@@ -1,0 +1,23 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; overflow: hidden; }
+body { display: flex; flex-direction: column; font-family: var(--vscode-font-family, sans-serif); color: var(--vscode-editor-foreground); background: var(--vscode-editor-background); border: 1px solid var(--vscode-widget-border, #8884); border-radius: 5px; }
+header { display: flex; align-items: center; gap: 14px; flex: 0 0 35px; padding: 3px 8px 3px 12px; border-bottom: 1px solid var(--vscode-widget-border, #8884); }
+.renderer-label { font-size: 10px; font-weight: 500; letter-spacing: 0.8px; color: var(--vscode-descriptionForeground); }
+#status { font-size: 11px; color: var(--vscode-descriptionForeground); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+nav { display: flex; gap: 4px; margin-left: auto; flex-shrink: 0; }
+button { cursor: pointer; padding: 3px 8px; border: 1px solid transparent; border-radius: 3px; background: transparent; color: var(--vscode-editor-foreground); font: inherit; font-size: 12px; }
+button:hover { background: var(--vscode-toolbar-hoverBackground, #8883); }
+button:focus-visible, main:focus-visible { outline: 1px solid var(--vscode-focusBorder); outline-offset: -1px; }
+.primary { background: var(--vscode-button-secondaryBackground); color: var(--vscode-button-secondaryForeground); }
+main { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+main.interactive { cursor: grab; touch-action: none; user-select: none; }
+main.panning { cursor: grabbing; }
+#diagram { position: absolute; top: 0; left: 0; transform-origin: 0 0; will-change: transform; }
+#diagram svg { display: block; }
+#zoom-level { min-width: 48px; font-variant-numeric: tabular-nums; }
+footer { flex: 0 0 auto; display: flex; align-items: center; gap: 14px; padding: 5px 12px; color: var(--vscode-descriptionForeground); font-size: 11px; }
+footer span + span { padding-left: 14px; border-left: 1px solid var(--vscode-widget-border, #8884); }
+#error { height: 100%; overflow: auto; padding: 14px 18px; margin: 0; white-space: pre-wrap; color: var(--vscode-errorForeground, #e06c75); font: 12px/1.6 var(--vscode-editor-font-family, monospace); }
+#scratch { position: absolute; left: -100000px; top: 0; width: 1200px; visibility: hidden; pointer-events: none; }
+[hidden] { display: none !important; }

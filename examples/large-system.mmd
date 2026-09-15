@@ -1,0 +1,80 @@
+flowchart LR
+    subgraph lane0["Signup"]
+        L0N0["Signup form"]
+        L0N1["Validate input"]
+        L0N2["Check duplicates"]
+        L0N3["Create account"]
+        L0N4["Hash credentials"]
+        L0N5["Save profile"]
+        L0N6["Emit signup event"]
+        L0N7["Send verification"]
+        L0N8["Verify email"]
+        L0N9["Create workspace"]
+        L0N10["Set permissions"]
+        L0N11["Welcome"]
+        L0N0 --> L0N1 --> L0N2 --> L0N3 --> L0N4 --> L0N5 --> L0N6 --> L0N7 --> L0N8 --> L0N9 --> L0N10 --> L0N11
+    end
+    subgraph lane1["Checkout"]
+        L1N0["Shopping cart"]
+        L1N1["Check inventory"]
+        L1N2["Apply discounts"]
+        L1N3["Calculate tax"]
+        L1N4["Reserve stock"]
+        L1N5["Authorize payment"]
+        L1N6["Create order"]
+        L1N7["Emit order event"]
+        L1N8["Pick items"]
+        L1N9["Ship package"]
+        L1N10["Track delivery"]
+        L1N11["Complete order"]
+        L1N0 --> L1N1 --> L1N2 --> L1N3 --> L1N4 --> L1N5 --> L1N6 --> L1N7 --> L1N8 --> L1N9 --> L1N10 --> L1N11
+    end
+    subgraph lane2["Billing"]
+        L2N0["Usage events"]
+        L2N1["Collect metrics"]
+        L2N2["Deduplicate"]
+        L2N3["Aggregate usage"]
+        L2N4["Apply pricing"]
+        L2N5["Generate invoice"]
+        L2N6["Review charges"]
+        L2N7["Charge account"]
+        L2N8["Record payment"]
+        L2N9["Update ledger"]
+        L2N10["Send receipt"]
+        L2N11["Reconcile"]
+        L2N0 --> L2N1 --> L2N2 --> L2N3 --> L2N4 --> L2N5 --> L2N6 --> L2N7 --> L2N8 --> L2N9 --> L2N10 --> L2N11
+    end
+    subgraph lane3["Support"]
+        L3N0["Help request"]
+        L3N1["Classify issue"]
+        L3N2["Match customer"]
+        L3N3["Find history"]
+        L3N4["Assign queue"]
+        L3N5["Assign agent"]
+        L3N6["Investigate"]
+        L3N7["Request details"]
+        L3N8["Resolve issue"]
+        L3N9["Notify customer"]
+        L3N10["Collect feedback"]
+        L3N11["Archive ticket"]
+        L3N0 --> L3N1 --> L3N2 --> L3N3 --> L3N4 --> L3N5 --> L3N6 --> L3N7 --> L3N8 --> L3N9 --> L3N10 --> L3N11
+    end
+    subgraph lane4["Analytics"]
+        L4N0["Client events"]
+        L4N1["Validate schema"]
+        L4N2["Enrich events"]
+        L4N3["Filter bots"]
+        L4N4["Mask identifiers"]
+        L4N5["Write stream"]
+        L4N6["Process batches"]
+        L4N7["Build sessions"]
+        L4N8["Compute metrics"]
+        L4N9["Update warehouse"]
+        L4N10["Refresh reports"]
+        L4N11["Publish dashboard"]
+        L4N0 --> L4N1 --> L4N2 --> L4N3 --> L4N4 --> L4N5 --> L4N6 --> L4N7 --> L4N8 --> L4N9 --> L4N10 --> L4N11
+    end
+    L0N6 -.-> L4N0
+    L1N7 -.-> L2N0
+    L2N10 -.-> L3N0
+    L1N11 -.-> L4N0

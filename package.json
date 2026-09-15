@@ -1,0 +1,106 @@
+{
+  "name": "mermaid-inline",
+  "type": "module",
+  "displayName": "Mermaid Inline (Experimental)",
+  "description": "Render Mermaid diagrams in the native text editor with per-block source toggles.",
+  "version": "0.2.1",
+  "publisher": "201549bl",
+  "repository": { "type": "git", "url": "https://github.com/201549BL/mermaid-inline.git" },
+  "homepage": "https://github.com/201549BL/mermaid-inline#readme",
+  "bugs": { "url": "https://github.com/201549BL/mermaid-inline/issues" },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.134.0"
+  },
+  "categories": [
+    "Visualization"
+  ],
+  "main": "./dist/extension.cjs",
+  "enabledApiProposals": [
+    "editorInsets"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onLanguage:mermaid"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "mermaid",
+        "aliases": [
+          "Mermaid"
+        ],
+        "extensions": [
+          ".mmd",
+          ".mermaid"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "mermaidInline.toggle",
+        "title": "Mermaid Inline: Toggle Diagram at Cursor"
+      },
+      {
+        "command": "mermaidInline.previewAll",
+        "title": "Mermaid Inline: Preview All Diagrams"
+      },
+      {
+        "command": "mermaidInline.showAllCode",
+        "title": "Mermaid Inline: Show All Source Code"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "mermaidInline.toggle",
+        "key": "ctrl+alt+m",
+        "mac": "cmd+alt+m",
+        "when": "editorTextFocus && (editorLangId == markdown || editorLangId == mermaid)"
+      }
+    ],
+    "configuration": {
+      "title": "Mermaid Inline",
+      "properties": {
+        "mermaidInline.autoPreview": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically preview diagrams when a text editor first becomes visible."
+        },
+        "mermaidInline.height": {
+          "scope": "resource",
+          "type": "number",
+          "default": 16,
+          "minimum": 6,
+          "maximum": 50,
+          "description": "Inline diagram height in editor lines. Large diagrams can be zoomed and scrolled."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "check": "tsc --noEmit",
+    "test": "node --test test/*.test.ts",
+    "test:ui": "playwright test",
+    "test:integration": "npm run build && node scripts/integration.mjs",
+    "package": "npm run check && vsce package --no-dependencies --allow-missing-repository",
+    "vscode:prepublish": "npm run build"
+  },
+  "dependencies": {
+    "mermaid": "12.0.0"
+  },
+  "overrides": {
+    "lodash-es": "4.18.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.13.4",
+    "@types/vscode": "1.134.0",
+    "@vscode/test-electron": "3.1.0",
+    "@vscode/vsce": "4.0.0",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  }
+}
